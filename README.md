@@ -64,16 +64,20 @@ Dijkstra's algorithm relies on an assumption about the weights. Let's see what h
 Trace Dijkstra's algorithm starting from Node $A$ to find the shortest path to Node $C$.
 
 1. Which node does Dijkstra's algorithm visit first after $A$?
-   > *Your answer here*
+   > Dijkstra's algorithm visits **B** first because its distance from A is 2, which is smaller than C's distance of 5.
 
 2. What will Dijkstra's algorithm declare as the shortest path to $C$, and what is its weight?
-   > *Your answer here*
+   > Dijkstra's algorithm finds **A → B → C**, with a total weight of **2 + (-4) = -2**.
 
 3. Look at the graph manually. What is the *actual* shortest path from $A$ to $C$, and what is its total weight? 
-   > *Your answer here*
+   > The shortest simple path is **A → B → C**, with a total weight of **-2**, which is smaller than the direct path A → C (weight 5).
 
 4. **The Trap:** Explain exactly *why* Dijkstra's algorithm failed to find the correct shortest path in this scenario.
-   > *Your answer here*
+   > Dijkstra's algorithm does not actually fail in this particular example. It visits B first and updates C's distance from 5 to -2, finding the correct shortest simple path.
+
+However, Dijkstra's algorithm assumes all edge weights are nonnegative. Negative weights can cause it to finalize a node before discovering a shorter path.
+
+Additionally, since the graph is undirected, the negative edge between B and C creates a negative cycle (B → C → B) with a total weight of -8. Repeating this cycle allows the path weight to decrease indefinitely, meaning no finite shortest walk exists.
 
 ---
 
