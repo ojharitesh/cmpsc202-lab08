@@ -101,8 +101,8 @@ Standard Dijkstra's algorithm only understands *edges* and *edge weights*. It do
 
 1. How should you represent the paths with stairs in your graph so the algorithm never tries to use them?
 
-   > *Your answer here*
+   > We should remove all edges representing paths with stairs from the graph. Since the robots cannot use stairs, removing these edges ensures Dijkstra's algorithm will never consider those paths when finding the shortest route.
 
 2. How can you account for the $3$-minute waiting time at busy crosswalk intersections using *only* edge weights? (Hint: Think about how you could modify the weights of edges connecting to that intersection).
 
-   > *Your answer here*
+   > We can add 3 minutes to the weight of every outgoing edge from a busy crosswalk intersection. Normally, each edge has a weight of 2 minutes, but outgoing edges from busy intersections would have a weight of 5 minutes (2 + 3). This ensures the algorithm includes the waiting time whenever the robot leaves a busy intersection.
