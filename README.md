@@ -40,17 +40,17 @@ Starting at Node $A$, trace Dijkstra's algorithm. Fill in the tracker table belo
 *   **`dist` Array:** The current known shortest distance from $A$ to each node. Use $\infty$ for unreachable/unknown nodes.
 *   **`visited` Set:** The set of nodes that have been finalized and whose shortest distances are known.
 
-| Step | Current Node | Neighbors to Check | `dist` Map | `visited` Set | 
-| :--- | :--- | :--- | :--- | :--- | 
-| 0 | $A$ | $B$, $C$ | $A$:0, $B$:4, $C$:2 | { } | 
-| 1 | | | | | 
-| 2 | | | | | 
-| 3 | | | | | 
-| 4 | | | | | 
+| Step | Current Node | Neighbors to Check | `dist` Map | `visited` Set |
+| :--- | :--- | :--- | :--- | :--- |
+| 0 | $A$ | $B$, $C$ | $A$:0, $B$:4, $C$:2 | { } |
+| 1 | $C$ | $B$, $D$, $E$ | $A$:0, $B$:3, $C$:2, $D$:10, $E$:12 | { $A$ } |
+| 2 | $B$ | $D$ | $A$:0, $B$:3, $C$:2, $D$:8, $E$:12 | { $A$, $C$} |
+| 3 | $D$ | $E$ | $A$:0, $B$:3, $C$:2, $D$:8, $E$:10 | { $A$, $C$, $B$} |
+| 4 | $E$ | None | $A$:0, $B$:3, $C$:2, $D$:8, $E$:10 | { $A$, $C$, $B$, $D$} |
 
 **Conceptual Question:**
 When we add a vertex to the "visited" set, why are we 100% certain we have found the absolute shortest path to that node? 
-> *Your answer here*
+> We are certain because Dijkstra's algorithm always chooses the unvisited node with the smallest known distance. Since all edge weights are nonnegative, no other path through unvisited nodes can have a smaller total weight. Therefore, once a node is added to the visited set, its shortest distance is guaranteed to be correct.
 
 ---
 
